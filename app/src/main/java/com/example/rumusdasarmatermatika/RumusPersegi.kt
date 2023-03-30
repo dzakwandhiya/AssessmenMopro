@@ -26,7 +26,7 @@ class RumusPersegi : AppCompatActivity() {
         val sisiNum = sisi.toBigInteger()
 
         val hasil = sisiNum*sisiNum
-        binding.hasilPersegiTextView.text = "Hasil : " + hasil +"cm"
+        binding.hasilPersegiTextView.text = "Hasil : " + hasil +"cm²"
 
     }
 

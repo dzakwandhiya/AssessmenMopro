@@ -31,7 +31,7 @@
             android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@string/judulSegitiga">
+            app:layout_constraintTop_toBottomOf="@+id/judulSegitiga">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/alas_input"
@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:imeOptions="actionDone"
                 android:inputType="number"
-                android:hint="@string/judulSegitiga" />
+                android:hint="@string/alasInput" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -67,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
-            android:drawableLeft="@drawable/rectangle"
+            android:drawableLeft="@drawable/triangle"
             android:fontFamily="@font/baloo_paaji"
             android:text="@string/hitungPersegi"
             app:layout_constraintBottom_toBottomOf="parent"

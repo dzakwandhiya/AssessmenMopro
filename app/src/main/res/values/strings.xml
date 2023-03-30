@@ -9,11 +9,13 @@
     <string name="judulPersegi">Rumus Luas Persegi</string>
     <string name="judulPersegiPanjang">Luas Persegi Panjang</string>
     <string name="judulSegitiga">Rumus Luas Segitiga</string>
+    <string name="judulLingkaran">Rumus Luas Lingkaran</string>
     <string name="sisiInput">Masukkan sisi persegi (cm)</string>
     <string name="panjangInput">Masukkan panjang (cm)</string>
     <string name="lebarInput">Masukkan lebar (cm)</string>
     <string name="alasInput">Masukkan alas (cm)</string>
     <string name="tinggiInput">Masukkan tinggi (cm)</string>
+    <string name="jariInput">Masukkan jari-jari (cm)</string>
     <string name="hitungPersegi">Hitung</string>
     <string name="hasilPersegi" />
     <string name="sisi_invalid">Sisi harus diisi!</string>
@@ -21,4 +23,5 @@
     <string name="lebar_invalid">Lebar harus diisi!</string>
     <string name="alas_invalid">Alas harus diisi!</string>
     <string name="tinggi_invalid">Tinggi harus diisi!</string>
+    <string name="jari_invalid">Jari-jari harus diisi!</string>
 </resources>

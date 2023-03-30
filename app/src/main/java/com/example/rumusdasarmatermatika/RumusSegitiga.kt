@@ -30,7 +30,8 @@ class RumusSegitiga : AppCompatActivity() {
             Toast.makeText(this, R.string.tinggi_invalid, Toast.LENGTH_LONG).show()
             return
         }
-        val tinggiHit = alas.toFloat();
-        binding.hasilPersegiPanjangTextView.text = "Hasil : " + (tinggiHit*alasHit)/2
+        val tinggiHit = tinggi.toFloat();
+        val hasil = tinggiHit*alasHit*0.5
+        binding.hasilPersegiPanjangTextView.text = "Hasil : " + hasil +"cm²"
     }
 }

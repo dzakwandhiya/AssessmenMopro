@@ -30,7 +30,7 @@ class RumusPersegiPanjang : AppCompatActivity() {
         }
         val lebarHit = lebar.toBigInteger();
         val hasil = panjangHit*lebarHit
-        binding.hasilPersegiPanjangTextView.text = "Hasil : " + hasil +"cm"
+        binding.hasilPersegiPanjangTextView.text = "Hasil : " + hasil +"cm²"
 
 
     }
