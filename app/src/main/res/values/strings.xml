@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Rumus Dasar Matermatika</string>
+    <string name="judul">MATEMATIKA BASE</string>
+    <string name="subJudul">Rumus Bangun Datar</string>
+    <string name="persegiButton">Persegi</string>
+    <string name="persegiPanjangButton">Persegi Panjang</string>
+    <string name="segitigaButton">SEGITIGA</string>
+    <string name="lingkaranButton">LINGKARAN</string>
+    <string name="judulPersegi">Rumus Luas Persegi</string>
+    <string name="judulPersegiPanjang">Luas Persegi Panjang</string>
+    <string name="judulSegitiga">Rumus Luas Segitiga</string>
+    <string name="sisiInput">Masukkan sisi persegi (cm)</string>
+    <string name="panjangInput">Masukkan panjang (cm)</string>
+    <string name="lebarInput">Masukkan lebar (cm)</string>
+    <string name="alasInput">Masukkan alas (cm)</string>
+    <string name="tinggiInput">Masukkan tinggi (cm)</string>
+    <string name="hitungPersegi">Hitung</string>
+    <string name="hasilPersegi" />
+    <string name="sisi_invalid">Sisi harus diisi!</string>
+    <string name="panjang_invalid">Panjang harus diisi!</string>
+    <string name="lebar_invalid">Lebar harus diisi!</string>
+    <string name="alas_invalid">Alas harus diisi!</string>
+    <string name="tinggi_invalid">Tinggi harus diisi!</string>
+</resources>
