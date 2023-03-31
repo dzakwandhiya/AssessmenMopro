@@ -17,6 +17,9 @@
     <string name="tinggiInput">Masukkan tinggi (cm)</string>
     <string name="jariInput">Masukkan jari-jari (cm)</string>
     <string name="hitungPersegi">Hitung</string>
+    <string name="hitungPersegiPanjang">Hitung</string>
+    <string name="hitungSegitiga">Hitung</string>
+    <string name="hitungLingkaran">Hitung</string>
     <string name="hasilPersegi" />
     <string name="sisi_invalid">Sisi harus diisi!</string>
     <string name="panjang_invalid">Panjang harus diisi!</string>

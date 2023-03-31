@@ -16,6 +16,7 @@ class RumusSegitiga : AppCompatActivity() {
         binding.hitungSegitiga.setOnClickListener {
             countSegitiga()
         }
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
     }
     private fun countSegitiga(){
         val alas = binding.alasInput.text.toString()

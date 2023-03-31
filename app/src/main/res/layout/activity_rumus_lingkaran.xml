@@ -50,7 +50,7 @@
             android:layout_marginTop="36dp"
             android:drawableLeft="@drawable/circle"
             android:fontFamily="@font/baloo_paaji"
-            android:text="@string/hitungPersegi"
+            android:text="@string/hitungLingkaran"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"

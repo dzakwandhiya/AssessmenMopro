@@ -17,6 +17,7 @@ class RumusLingkaran : AppCompatActivity() {
         binding.hitungLingkaran.setOnClickListener {
             countLingkaran()
         }
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
     }
     private fun countLingkaran(){
         val PHI = 3.14

@@ -16,6 +16,7 @@ class RumusPersegi : AppCompatActivity() {
         binding.hitungPersegi.setOnClickListener {
             countPersegi()
         }
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
     }
     private fun countPersegi(){
         val sisi = binding.sisiInput.text.toString()

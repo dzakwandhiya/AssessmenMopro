@@ -15,6 +15,7 @@ class RumusPersegiPanjang : AppCompatActivity() {
         binding.hitungPersegiPanjang.setOnClickListener {
             countPersegiPanjang()
         }
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
     }
     private fun countPersegiPanjang(){
         val panjang = binding.panjangInput.text.toString();
