@@ -26,6 +26,6 @@ class RumusLingkaran : AppCompatActivity() {
             return
         }
         val jariHit = jari.toFloat()
-        binding.hasilLingkaranTextView.text = "Hasil : " + PHI*(jariHit*jariHit) + "cm²"
+        binding.hasilLingkaranTextView.text = "Hasil : " + PHI*jariHit*jariHit + "cm²"
     }
 }
