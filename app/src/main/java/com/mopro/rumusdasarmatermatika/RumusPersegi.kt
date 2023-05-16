@@ -1,14 +1,20 @@
-package com.example.rumusdasarmatermatika
-
+package com.mopro.rumusdasarmatermatika
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
-import com.example.rumusdasarmatermatika.databinding.ActivityRumusPersegiBinding
+import androidx.lifecycle.ViewModelProvider
+import com.mopro.rumusdasarmatermatika.databinding.ActivityRumusPersegiBinding
+import com.mopro.rumusdasarmatermatika.model.LuasPersegi
+import java.math.BigInteger
 
 class RumusPersegi : AppCompatActivity() {
     private lateinit var binding: ActivityRumusPersegiBinding
+    private val vIewModel: MainVIewModel by lazy {
+        ViewModelProvider(this)[MainVIewModel::class.java]
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRumusPersegiBinding.inflate(layoutInflater)
@@ -17,6 +23,8 @@ class RumusPersegi : AppCompatActivity() {
             countPersegi()
         }
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        //
+        vIewModel.getLuasPersegi().observe(this, {showResult(it)})
     }
     private fun countPersegi(){
         val sisi = binding.sisiInput.text.toString()
@@ -25,12 +33,13 @@ class RumusPersegi : AppCompatActivity() {
             return
         }
         val sisiNum = sisi.toBigInteger()
-
-        val hasil = sisiNum*sisiNum
-        binding.hasilPersegiTextView.text = "Hasil : " + hasil +"cm²"
-
+        vIewModel.countPersegi(sisiNum)
     }
 
+    private fun showResult(result: LuasPersegi?) {
+        if (result == null) return
+        binding.hasilPersegiTextView.text = "Hasil : " + result.hasil +"cm²"
+    }
 }
 
 

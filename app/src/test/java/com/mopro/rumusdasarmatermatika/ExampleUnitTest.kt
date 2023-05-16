@@ -1,4 +1,4 @@
-package com.example.rumusdasarmatermatika
+package com.mopro.rumusdasarmatermatika
 
 import org.junit.Test
 

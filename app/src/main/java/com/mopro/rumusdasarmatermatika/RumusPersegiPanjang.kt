@@ -1,13 +1,17 @@
-package com.example.rumusdasarmatermatika
+package com.mopro.rumusdasarmatermatika
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
-import com.example.rumusdasarmatermatika.databinding.ActivityRumusPersegiPanjangBinding
+import androidx.lifecycle.ViewModelProvider
+import com.mopro.rumusdasarmatermatika.databinding.ActivityRumusPersegiPanjangBinding
 
 class RumusPersegiPanjang : AppCompatActivity() {
     private lateinit var binding: ActivityRumusPersegiPanjangBinding
+    private val vIewModel: MainVIewModel by lazy {
+        ViewModelProvider(this)[MainVIewModel::class.java]
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRumusPersegiPanjangBinding.inflate(layoutInflater)

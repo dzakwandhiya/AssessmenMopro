@@ -1,4 +1,4 @@
-package com.example.rumusdasarmatermatika
+package com.mopro.rumusdasarmatermatika
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

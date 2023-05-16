@@ -1,10 +1,10 @@
-package com.example.rumusdasarmatermatika
+package com.mopro.rumusdasarmatermatika
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
-import com.example.rumusdasarmatermatika.databinding.ActivityRumusSegitigaBinding
+import com.mopro.rumusdasarmatermatika.databinding.ActivityRumusSegitigaBinding
 
 class RumusSegitiga : AppCompatActivity() {
     private lateinit var binding: ActivityRumusSegitigaBinding
