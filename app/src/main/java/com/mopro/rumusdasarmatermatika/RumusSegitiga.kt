@@ -4,10 +4,17 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import com.mopro.rumusdasarmatermatika.databinding.ActivityRumusSegitigaBinding
+import com.mopro.rumusdasarmatermatika.model.LuasPersegiPanjang
+import com.mopro.rumusdasarmatermatika.model.LuasSegitiga
 
 class RumusSegitiga : AppCompatActivity() {
     private lateinit var binding: ActivityRumusSegitigaBinding
+    //mvvm
+    private val vIewModel: MainVIewModel by lazy {
+        ViewModelProvider(this)[MainVIewModel::class.java]
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rumus_segitiga)
@@ -17,6 +24,8 @@ class RumusSegitiga : AppCompatActivity() {
             countSegitiga()
         }
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        //mvvm
+        vIewModel.getLuasSegitiga().observe(this, {showResult(it)})
     }
     private fun countSegitiga(){
         val alas = binding.alasInput.text.toString()
@@ -32,7 +41,14 @@ class RumusSegitiga : AppCompatActivity() {
             return
         }
         val tinggiHit = tinggi.toFloat();
-        val hasil = tinggiHit*alasHit*0.5
-        binding.hasilPersegiPanjangTextView.text = "Hasil : " + hasil +"cm²"
+        //mvvm
+        vIewModel.countSegitiga(alasHit, tinggiHit)
+
+
+    }
+    //mvvm
+    private fun showResult(result: LuasSegitiga?) {
+        if (result == null) return
+        binding.hasilSegitigaTextView.text = "Hasil : " + result.hasil +"cm²"
     }
 }
