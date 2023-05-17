@@ -1,35 +1,39 @@
-package com.mopro.rumusdasarmatermatika
+package com.mopro.rumusdasarmatermatika.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.mopro.rumusdasarmatermatika.R
 import com.mopro.rumusdasarmatermatika.databinding.ActivityRumusPersegiBinding
 import com.mopro.rumusdasarmatermatika.model.LuasPersegi
 
-class RumusPersegi : AppCompatActivity() {
+class FragmentRumusPersegi : Fragment() {
     private lateinit var binding: ActivityRumusPersegiBinding
     //mvvm
     private val viewModel: MainVIewModel by lazy {
         ViewModelProvider(this)[MainVIewModel::class.java]
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityRumusPersegiBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View {
+        binding = ActivityRumusPersegiBinding.inflate(layoutInflater, container, false)
+        return binding.root
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.hitungPersegi.setOnClickListener {
             countPersegi()
         }
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        //mvvm
-        viewModel.getLuasPersegi().observe(this, {showResult(it)})
+        viewModel.getLuasPersegi().observe(requireActivity(), {showResult(it)})
     }
     private fun countPersegi(){
         val sisi = binding.sisiInput.text.toString()
         if (TextUtils.isEmpty(sisi)) {
-            Toast.makeText(this, R.string.sisi_invalid, Toast.LENGTH_LONG).show()
+            Toast.makeText(context, R.string.sisi_invalid, Toast.LENGTH_LONG).show()
             return
         }
         val sisiNum = sisi.toBigInteger()

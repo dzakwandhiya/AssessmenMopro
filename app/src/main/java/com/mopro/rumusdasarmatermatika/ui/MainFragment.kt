@@ -1,14 +1,13 @@
 package com.mopro.rumusdasarmatermatika.ui
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.mopro.rumusdasarmatermatika.MainVIewModel
+import androidx.navigation.findNavController
+import com.mopro.rumusdasarmatermatika.R
 import com.mopro.rumusdasarmatermatika.databinding.MainFragmentBinding
 
 class MainFragment : Fragment() {
@@ -21,6 +20,32 @@ class MainFragment : Fragment() {
         binding = MainFragmentBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        binding.buttonPersegi.setOnClickListener {
+            it.findNavController().navigate(
+                R.id.action_mainFragment_to_fragmentRumusPersegi
+            )
+        }
+
+        binding.buttonPersegiPanjang.setOnClickListener {
+            it.findNavController().navigate(
+                R.id.action_mainFragment_to_fragmentRumusPersegiPanjang
+            )
+        }
+        binding.buttonSegitiga.setOnClickListener {
+            it.findNavController().navigate(
+                R.id.action_mainFragment_to_fragmentRumusSegitiga2
+            )
+        }
+        binding.buttonLingkaran.setOnClickListener {
+            it.findNavController().navigate(
+                R.id.action_mainFragment_to_fragmentRumusLingkaran
+            )
+        }
+    }
+
+
 
 
 
