@@ -4,4 +4,5 @@ import java.math.BigInteger
 
 data class LuasPersegi(
     val hasil: BigInteger
+
 )

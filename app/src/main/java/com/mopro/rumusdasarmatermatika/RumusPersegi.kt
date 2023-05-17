@@ -11,6 +11,7 @@ import java.math.BigInteger
 
 class RumusPersegi : AppCompatActivity() {
     private lateinit var binding: ActivityRumusPersegiBinding
+    //mvvm
     private val vIewModel: MainVIewModel by lazy {
         ViewModelProvider(this)[MainVIewModel::class.java]
     }
@@ -23,7 +24,7 @@ class RumusPersegi : AppCompatActivity() {
             countPersegi()
         }
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        //
+        //mvvm
         vIewModel.getLuasPersegi().observe(this, {showResult(it)})
     }
     private fun countPersegi(){
@@ -33,9 +34,10 @@ class RumusPersegi : AppCompatActivity() {
             return
         }
         val sisiNum = sisi.toBigInteger()
+        //mvvm
         vIewModel.countPersegi(sisiNum)
     }
-
+    //mvvm
     private fun showResult(result: LuasPersegi?) {
         if (result == null) return
         binding.hasilPersegiTextView.text = "Hasil : " + result.hasil +"cm²"
