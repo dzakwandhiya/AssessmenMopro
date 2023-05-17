@@ -7,12 +7,11 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.mopro.rumusdasarmatermatika.databinding.ActivityRumusPersegiBinding
 import com.mopro.rumusdasarmatermatika.model.LuasPersegi
-import java.math.BigInteger
 
 class RumusPersegi : AppCompatActivity() {
     private lateinit var binding: ActivityRumusPersegiBinding
     //mvvm
-    private val vIewModel: MainVIewModel by lazy {
+    private val viewModel: MainVIewModel by lazy {
         ViewModelProvider(this)[MainVIewModel::class.java]
     }
 
@@ -25,7 +24,7 @@ class RumusPersegi : AppCompatActivity() {
         }
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         //mvvm
-        vIewModel.getLuasPersegi().observe(this, {showResult(it)})
+        viewModel.getLuasPersegi().observe(this, {showResult(it)})
     }
     private fun countPersegi(){
         val sisi = binding.sisiInput.text.toString()
@@ -34,8 +33,9 @@ class RumusPersegi : AppCompatActivity() {
             return
         }
         val sisiNum = sisi.toBigInteger()
+
         //mvvm
-        vIewModel.countPersegi(sisiNum)
+        viewModel.persegi(sisiNum)
     }
     //mvvm
     private fun showResult(result: LuasPersegi?) {

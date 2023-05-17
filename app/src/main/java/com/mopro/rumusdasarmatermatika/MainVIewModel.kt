@@ -3,10 +3,7 @@ package com.mopro.rumusdasarmatermatika
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.mopro.rumusdasarmatermatika.model.LuasLingkaran
-import com.mopro.rumusdasarmatermatika.model.LuasPersegi
-import com.mopro.rumusdasarmatermatika.model.LuasPersegiPanjang
-import com.mopro.rumusdasarmatermatika.model.LuasSegitiga
+import com.mopro.rumusdasarmatermatika.model.*
 import java.math.BigInteger
 
 class MainVIewModel : ViewModel() {
@@ -15,6 +12,28 @@ class MainVIewModel : ViewModel() {
     private val luasSegitiga = MutableLiveData<LuasSegitiga?>()
     private val luasLingkaran = MutableLiveData<LuasLingkaran?>()
 
+    fun persegi(sisi: BigInteger){
+        val bangunPersegi = BangunPersegi(sisi)
+        val sisi = bangunPersegi.sisi
+        countPersegi(sisi)
+    }
+    fun persegiPanjang(panjang: BigInteger, lebar: BigInteger){
+        val bangunPersegiPanjang = BangunPersegiPanjang(panjang, lebar)
+        val panjang = bangunPersegiPanjang.panjang
+        val lebar = bangunPersegiPanjang.lebar
+        countPersegiPanjang(panjang, lebar)
+    }
+    fun segitiga(alas: Float, tinggi: Float){
+        val bangunSegitiga = BangunSegitiga(alas, tinggi)
+        val alas = bangunSegitiga.alas
+        val tinggi = bangunSegitiga.tinggi
+        countSegitiga(alas, tinggi)
+    }
+    fun lingkaran(jari: Float){
+        val bangunLingkaran = BangunLingkaran(jari)
+        val jari = bangunLingkaran.jari
+        countLingkaran(jari)
+    }
     fun countPersegi(sisi: BigInteger){
         val hasil = sisi*sisi
         luasPersegi.value = LuasPersegi(hasil)
@@ -24,10 +43,10 @@ class MainVIewModel : ViewModel() {
         luasPersegiPanjang.value = LuasPersegiPanjang(hasil)
     }
     fun countSegitiga(alas: Float, tinggi: Float){
-        val hasil = alas*tinggi
+        val hasil = alas*tinggi*0.5f
         luasSegitiga.value = LuasSegitiga(hasil)
     }
-    fun countLingkarn(jari: Float){
+    fun countLingkaran(jari: Float){
         val PHI = 3.14
         val hasil = PHI*jari*jari
         luasLingkaran.value = LuasLingkaran(hasil)

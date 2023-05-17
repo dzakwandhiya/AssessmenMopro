@@ -6,13 +6,12 @@ import android.text.TextUtils
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.mopro.rumusdasarmatermatika.databinding.ActivityRumusSegitigaBinding
-import com.mopro.rumusdasarmatermatika.model.LuasPersegiPanjang
 import com.mopro.rumusdasarmatermatika.model.LuasSegitiga
 
 class RumusSegitiga : AppCompatActivity() {
     private lateinit var binding: ActivityRumusSegitigaBinding
     //mvvm
-    private val vIewModel: MainVIewModel by lazy {
+    private val viewModel: MainVIewModel by lazy {
         ViewModelProvider(this)[MainVIewModel::class.java]
     }
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +24,7 @@ class RumusSegitiga : AppCompatActivity() {
         }
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         //mvvm
-        vIewModel.getLuasSegitiga().observe(this, {showResult(it)})
+        viewModel.getLuasSegitiga().observe(this, {showResult(it)})
     }
     private fun countSegitiga(){
         val alas = binding.alasInput.text.toString()
@@ -42,7 +41,7 @@ class RumusSegitiga : AppCompatActivity() {
         }
         val tinggiHit = tinggi.toFloat();
         //mvvm
-        vIewModel.countSegitiga(alasHit, tinggiHit)
+        viewModel.segitiga(alasHit, tinggiHit)
 
 
     }

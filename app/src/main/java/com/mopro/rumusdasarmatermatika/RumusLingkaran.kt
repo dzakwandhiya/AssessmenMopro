@@ -7,12 +7,11 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.mopro.rumusdasarmatermatika.databinding.ActivityRumusLingkaranBinding
 import com.mopro.rumusdasarmatermatika.model.LuasLingkaran
-import com.mopro.rumusdasarmatermatika.model.LuasPersegiPanjang
 
 class RumusLingkaran : AppCompatActivity() {
     private lateinit var binding: ActivityRumusLingkaranBinding
     //mvvm
-    private val vIewModel: MainVIewModel by lazy {
+    private val viewModel: MainVIewModel by lazy {
         ViewModelProvider(this)[MainVIewModel::class.java]
     }
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +24,7 @@ class RumusLingkaran : AppCompatActivity() {
         }
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         //mvvm
-        vIewModel.getLuasLingkaran().observe(this, {showResult(it)})
+        viewModel.getLuasLingkaran().observe(this, {showResult(it)})
     }
     private fun countLingkaran(){
 
@@ -36,7 +35,7 @@ class RumusLingkaran : AppCompatActivity() {
         }
         val jariHit = jari.toFloat()
         //MVVM
-        vIewModel.countLingkarn(jariHit)
+        viewModel.lingkaran(jariHit)
     }
     //mvvm
     private fun showResult(result: LuasLingkaran?) {

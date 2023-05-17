@@ -6,13 +6,12 @@ import android.text.TextUtils
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.mopro.rumusdasarmatermatika.databinding.ActivityRumusPersegiPanjangBinding
-import com.mopro.rumusdasarmatermatika.model.LuasPersegi
 import com.mopro.rumusdasarmatermatika.model.LuasPersegiPanjang
 
 class RumusPersegiPanjang : AppCompatActivity() {
     private lateinit var binding: ActivityRumusPersegiPanjangBinding
     //mvvm
-    private val vIewModel: MainVIewModel by lazy {
+    private val viewModel: MainVIewModel by lazy {
         ViewModelProvider(this)[MainVIewModel::class.java]
     }
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +23,7 @@ class RumusPersegiPanjang : AppCompatActivity() {
         }
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         //mvvm
-        vIewModel.getLuasPersegiPanjang().observe(this, {showResult(it)})
+        viewModel.getLuasPersegiPanjang().observe(this, {showResult(it)})
     }
     private fun countPersegiPanjang(){
         val panjang = binding.panjangInput.text.toString();
@@ -40,11 +39,8 @@ class RumusPersegiPanjang : AppCompatActivity() {
         }
         val lebarHit = lebar.toBigInteger();
         //mvvm
-        vIewModel.countPersegiPanjang(panjangHit, lebarHit)
-
-
+        viewModel.persegiPanjang(panjangHit, lebarHit)
     }
-
     //mvvm
     private fun showResult(result: LuasPersegiPanjang?) {
         if (result == null) return
