@@ -34,7 +34,7 @@ class MainFragment : Fragment() {
         }
         binding.buttonSegitiga.setOnClickListener {
             it.findNavController().navigate(
-                R.id.action_mainFragment_to_fragmentRumusSegitiga2
+                R.id.action_mainFragment_to_fragmentRumusSegitiga
             )
         }
         binding.buttonLingkaran.setOnClickListener {

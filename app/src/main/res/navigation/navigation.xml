@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.mopro.rumusdasarmatermatika.ui.MainFragment"
+        android:label="main_fragment"
+        tools:layout="@layout/main_fragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_fragmentRumusPersegi"
+            app:destination="@id/fragmentRumusPersegi" />
+        <action
+            android:id="@+id/action_mainFragment_to_fragmentRumusPersegiPanjang"
+            app:destination="@id/fragmentRumusPersegiPanjang" />
+        <action
+            android:id="@+id/action_mainFragment_to_fragmentRumusLingkaran"
+            app:destination="@id/fragmentRumusLingkaran" />
+        <action
+            android:id="@+id/action_mainFragment_to_fragmentRumusSegitiga"
+            app:destination="@id/fragmentRumusSegitiga" />
+        <action
+            android:id="@+id/action_mainFragment_to_aboutFragment"
+            app:destination="@id/aboutFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentRumusLingkaran"
+        android:name="com.mopro.rumusdasarmatermatika.ui.FragmentRumusLingkaran"
+        android:label="activity_rumus_lingkaran"
+        tools:layout="@layout/activity_rumus_lingkaran" />
+    <fragment
+        android:id="@+id/fragmentRumusPersegi"
+        android:name="com.mopro.rumusdasarmatermatika.ui.FragmentRumusPersegi"
+        android:label="activity_rumus_persegi"
+        tools:layout="@layout/activity_rumus_persegi" />
+    <fragment
+        android:id="@+id/fragmentRumusPersegiPanjang"
+        android:name="com.mopro.rumusdasarmatermatika.ui.FragmentRumusPersegiPanjang"
+        android:label="activity_rumus_persegi_panjang"
+        tools:layout="@layout/activity_rumus_persegi_panjang" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.mopro.rumusdasarmatermatika.ui.AboutFragment"
+        android:label="AboutFragment" />
+    <fragment
+        android:id="@+id/fragmentRumusSegitiga"
+        android:name="com.mopro.rumusdasarmatermatika.ui.FragmentRumusSegitiga"
+        android:label="activity_rumus_segitiga"
+        tools:layout="@layout/activity_rumus_segitiga" />
+</navigation>
