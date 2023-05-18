@@ -34,7 +34,7 @@ class MainFragment : Fragment() {
         }
         binding.buttonSegitiga.setOnClickListener {
             it.findNavController().navigate(
-                R.id.action_mainFragment_to_fragmentRumusSegitiga2
+                R.id.action_mainFragment_to_fragmentRumusSegitiga
             )
         }
         binding.buttonLingkaran.setOnClickListener {
@@ -49,11 +49,18 @@ class MainFragment : Fragment() {
         inflater.inflate(R.menu.option_menu, menu)
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.menu_about) {
-            findNavController().navigate(
-                R.id.action_mainFragment_to_aboutFragment)
-            return true
-        }
+        when(item.itemId) {
+            R.id.menu_histori -> {
+                findNavController().navigate(R.id.action_mainFragment_to_fragmentHistori)
+                return true
+            }
+
+                R.id.menu_about -> {
+                    findNavController().navigate(R.id.action_mainFragment_to_aboutFragment)
+                    return true
+                }
+            }
+
         return super.onOptionsItemSelected(item)
     }
 

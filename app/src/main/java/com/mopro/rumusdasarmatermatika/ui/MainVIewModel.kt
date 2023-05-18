@@ -3,10 +3,17 @@ package com.mopro.rumusdasarmatermatika.ui
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.mopro.rumusdasarmatermatika.db.HasilDao
+import com.mopro.rumusdasarmatermatika.db.HasilDb
+import com.mopro.rumusdasarmatermatika.db.HasilEntity
 import com.mopro.rumusdasarmatermatika.model.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.math.BigInteger
 
-class MainVIewModel : ViewModel() {
+class MainVIewModel(private val db: HasilDao) : ViewModel() {
     private val luasPersegi = MutableLiveData<LuasPersegi?>()
     private val luasPersegiPanjang = MutableLiveData<LuasPersegiPanjang?>()
     private val luasSegitiga = MutableLiveData<LuasSegitiga?>()
@@ -37,6 +44,16 @@ class MainVIewModel : ViewModel() {
     fun countPersegi(sisi: BigInteger){
         val hasil = sisi*sisi
         luasPersegi.value = LuasPersegi(hasil)
+        viewModelScope.launch{
+            withContext(Dispatchers.IO){
+                val dataHasil = HasilEntity(
+                    bangun = "Bangun Persegi",
+                    input = "sisi = $sisi",
+                    hasil_rumus = sisi.toLong()
+                )
+                db.insert(dataHasil)
+            }
+        }
     }
     fun countPersegiPanjang(panjang: BigInteger, lebar: BigInteger){
         val hasil = panjang*lebar
