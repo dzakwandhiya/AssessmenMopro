@@ -11,7 +11,6 @@ interface HasilDao {
     fun insert(hasil: HasilEntity)
     @Query("SELECT * FROM hasil ORDER BY id DESC")
     fun getLastHasil(): LiveData<List<HasilEntity>>
-
     @Query("DELETE FROM hasil")
     fun clearData()
 }

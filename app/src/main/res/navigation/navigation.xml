@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.mopro.rumusdasarmatermatika.ui.MainFragment"
-        android:label="main_fragment"
+        android:label="Rumus Matematika"
         tools:layout="@layout/main_fragment" >
         <action
             android:id="@+id/action_mainFragment_to_fragmentRumusPersegi"
@@ -34,31 +34,31 @@
     <fragment
         android:id="@+id/fragmentRumusLingkaran"
         android:name="com.mopro.rumusdasarmatermatika.ui.FragmentRumusLingkaran"
-        android:label="activity_rumus_lingkaran"
+        android:label="Rumus Lingkaran"
         tools:layout="@layout/activity_rumus_lingkaran" />
     <fragment
         android:id="@+id/fragmentRumusPersegi"
         android:name="com.mopro.rumusdasarmatermatika.ui.FragmentRumusPersegi"
-        android:label="activity_rumus_persegi"
+        android:label="Rumus Persegi"
         tools:layout="@layout/activity_rumus_persegi" />
     <fragment
         android:id="@+id/fragmentRumusPersegiPanjang"
         android:name="com.mopro.rumusdasarmatermatika.ui.FragmentRumusPersegiPanjang"
-        android:label="activity_rumus_persegi_panjang"
+        android:label="Rumus Persegi Panjang"
         tools:layout="@layout/activity_rumus_persegi_panjang" />
     <fragment
         android:id="@+id/aboutFragment"
         android:name="com.mopro.rumusdasarmatermatika.ui.AboutFragment"
-        android:label="AboutFragment" />
+        android:label="Tentang" />
     <fragment
         android:id="@+id/fragmentRumusSegitiga"
         android:name="com.mopro.rumusdasarmatermatika.ui.FragmentRumusSegitiga"
-        android:label="activity_rumus_segitiga"
+        android:label="Rumus Segitiga"
         tools:layout="@layout/activity_rumus_segitiga" />
 
     <fragment
         android:id="@+id/fragmentHistori"
         android:name="com.mopro.rumusdasarmatermatika.ui.FragmentHistori"
-        android:label="FragmentHistori" />
+        android:label="Histori Anda" />
 
 </navigation>

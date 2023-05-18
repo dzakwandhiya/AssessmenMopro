@@ -5,9 +5,17 @@
         android:icon="@drawable/history_vector"
         android:title="@string/histori"
         app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/bagikan"
+        android:title="@string/histori"
+        android:icon="@drawable/share"
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/menu_about"
         android:title="@string/about"
-        app:showAsAction="never" />
+        android:icon="@drawable/info"
+        app:showAsAction="ifRoom"/>
+
+
 </menu>

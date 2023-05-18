@@ -1,5 +1,6 @@
 package com.mopro.rumusdasarmatermatika.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
@@ -20,7 +21,6 @@ class MainFragment : Fragment() {
         return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
         binding.buttonPersegi.setOnClickListener {
             it.findNavController().navigate(
                 R.id.action_mainFragment_to_fragmentRumusPersegi
@@ -55,14 +55,27 @@ class MainFragment : Fragment() {
                 return true
             }
 
-                R.id.menu_about -> {
+            R.id.menu_about -> {
                     findNavController().navigate(R.id.action_mainFragment_to_aboutFragment)
                     return true
-                }
             }
+            R.id.bagikan -> {
+                shareData()
+            }
+        }
 
         return super.onOptionsItemSelected(item)
     }
+    private fun shareData() {
+        val message = getString(R.string.sharelink)
+        val shareIntent = Intent(Intent.ACTION_SEND)
+        shareIntent.setType("text/plain").putExtra(Intent.EXTRA_TEXT, message)
+        if (shareIntent.resolveActivity(
+                requireActivity().packageManager) != null) {
+            startActivity(shareIntent)
+        }
+    }
+
 
 
 
