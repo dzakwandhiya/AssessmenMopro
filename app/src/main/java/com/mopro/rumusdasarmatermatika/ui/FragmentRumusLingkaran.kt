@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.mopro.rumusdasarmatermatika.R
 import com.mopro.rumusdasarmatermatika.databinding.ActivityRumusLingkaranBinding
+import com.mopro.rumusdasarmatermatika.db.HasilDb
 import com.mopro.rumusdasarmatermatika.model.LuasLingkaran
 
 
@@ -17,7 +18,9 @@ class FragmentRumusLingkaran : Fragment() {
     private lateinit var binding: ActivityRumusLingkaranBinding
     //mvvm
     private val viewModel: MainVIewModel by lazy {
-        ViewModelProvider(this)[MainVIewModel::class.java]
+        val db = HasilDb.getInstance(requireContext())
+        val factory = MainViewModelFactory(db.dao)
+        ViewModelProvider(this, factory)[MainVIewModel::class.java]
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -38,7 +41,7 @@ class FragmentRumusLingkaran : Fragment() {
             Toast.makeText(context, R.string.jari_invalid, Toast.LENGTH_LONG).show()
             return
         }
-        val jariHit = jari.toFloat()
+        val jariHit = jari.toLong()
         //MVVM
         viewModel.lingkaran(jariHit)
     }

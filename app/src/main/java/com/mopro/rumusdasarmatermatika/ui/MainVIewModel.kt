@@ -5,13 +5,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mopro.rumusdasarmatermatika.db.HasilDao
-import com.mopro.rumusdasarmatermatika.db.HasilDb
 import com.mopro.rumusdasarmatermatika.db.HasilEntity
 import com.mopro.rumusdasarmatermatika.model.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.math.BigInteger
 
 class MainVIewModel(private val db: HasilDao) : ViewModel() {
     private val luasPersegi = MutableLiveData<LuasPersegi?>()
@@ -19,54 +17,88 @@ class MainVIewModel(private val db: HasilDao) : ViewModel() {
     private val luasSegitiga = MutableLiveData<LuasSegitiga?>()
     private val luasLingkaran = MutableLiveData<LuasLingkaran?>()
 
-    fun persegi(sisi: BigInteger){
+    fun persegi(sisi: Long){
         val bangunPersegi = BangunPersegi(sisi)
         val sisi = bangunPersegi.sisi
         countPersegi(sisi)
     }
-    fun persegiPanjang(panjang: BigInteger, lebar: BigInteger){
+    fun persegiPanjang(panjang: Long, lebar: Long){
         val bangunPersegiPanjang = BangunPersegiPanjang(panjang, lebar)
         val panjang = bangunPersegiPanjang.panjang
         val lebar = bangunPersegiPanjang.lebar
         countPersegiPanjang(panjang, lebar)
     }
-    fun segitiga(alas: Float, tinggi: Float){
+    fun segitiga(alas: Long, tinggi: Long){
         val bangunSegitiga = BangunSegitiga(alas, tinggi)
         val alas = bangunSegitiga.alas
         val tinggi = bangunSegitiga.tinggi
         countSegitiga(alas, tinggi)
     }
-    fun lingkaran(jari: Float){
+    fun lingkaran(jari: Long){
         val bangunLingkaran = BangunLingkaran(jari)
         val jari = bangunLingkaran.jari
         countLingkaran(jari)
     }
-    fun countPersegi(sisi: BigInteger){
+    fun countPersegi(sisi: Long){
         val hasil = sisi*sisi
-        luasPersegi.value = LuasPersegi(hasil)
+        val dataHasil = HasilEntity(
+            bangun = "Persegi",
+            input = "Sisi: $sisi",
+            hasil_rumus = hasil
+        )
+
+        luasPersegi.value = dataHasil.hitungPersegi()
         viewModelScope.launch{
             withContext(Dispatchers.IO){
-                val dataHasil = HasilEntity(
-                    bangun = "Bangun Persegi",
-                    input = "sisi = $sisi",
-                    hasil_rumus = sisi.toLong()
-                )
                 db.insert(dataHasil)
             }
         }
     }
-    fun countPersegiPanjang(panjang: BigInteger, lebar: BigInteger){
+    fun countPersegiPanjang(panjang: Long, lebar: Long){
         val hasil = panjang*lebar
         luasPersegiPanjang.value = LuasPersegiPanjang(hasil)
+        val dataHasil = HasilEntity(
+            bangun = "Persegi Panjang",
+            input = "Panjang: $panjang, Lebar: $lebar",
+            hasil_rumus = hasil
+        )
+        luasPersegiPanjang.value = dataHasil.hitungPersegiPanjang()
+        viewModelScope.launch{
+            withContext(Dispatchers.IO){
+                db.insert(dataHasil)
+            }
+        }
     }
-    fun countSegitiga(alas: Float, tinggi: Float){
+    fun countSegitiga(alas: Long, tinggi: Long){
         val hasil = alas*tinggi*0.5f
-        luasSegitiga.value = LuasSegitiga(hasil)
+        luasSegitiga.value = LuasSegitiga(hasil.toLong())
+        val dataHasil = HasilEntity(
+            bangun = "Segitiga",
+            input = "Alas: $alas, Lebar: $tinggi",
+            hasil_rumus = hasil.toLong()
+        )
+        luasPersegiPanjang.value = dataHasil.hitungPersegiPanjang()
+        viewModelScope.launch{
+            withContext(Dispatchers.IO){
+                db.insert(dataHasil)
+            }
+        }
     }
-    fun countLingkaran(jari: Float){
+    fun countLingkaran(jari: Long){
         val PHI = 3.14
         val hasil = PHI*jari*jari
-        luasLingkaran.value = LuasLingkaran(hasil)
+        val dataHasil = HasilEntity(
+            bangun = "Lingkaran",
+            input = "Jari-Jari: $jari",
+            hasil_rumus = hasil.toLong()
+        )
+
+        luasLingkaran.value = dataHasil.hitungLingkaran()
+        viewModelScope.launch{
+            withContext(Dispatchers.IO){
+                db.insert(dataHasil)
+            }
+        }
     }
 
     fun getLuasPersegi(): LiveData<LuasPersegi?> = luasPersegi

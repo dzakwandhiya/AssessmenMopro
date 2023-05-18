@@ -33,4 +33,6 @@
     </string>
     <string name="tidak_ada_data">Tidak ada data</string>
     <string name="histori">Histori</string>
+    <string name="nama_bangun">Bangun :</string>
+    <string name="hasil_rumus">Operasi : </string>
 </resources>

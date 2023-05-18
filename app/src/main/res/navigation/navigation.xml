@@ -25,12 +25,11 @@
         <action
             android:id="@+id/action_mainFragment_to_aboutFragment"
             app:destination="@id/aboutFragment" />
-<<<<<<< HEAD
+
         <action
             android:id="@+id/action_mainFragment_to_fragmentHistori"
             app:destination="@id/fragmentHistori" />
-=======
->>>>>>> origin/Assessment2
+
     </fragment>
     <fragment
         android:id="@+id/fragmentRumusLingkaran"
@@ -56,11 +55,10 @@
         android:name="com.mopro.rumusdasarmatermatika.ui.FragmentRumusSegitiga"
         android:label="activity_rumus_segitiga"
         tools:layout="@layout/activity_rumus_segitiga" />
-<<<<<<< HEAD
+
     <fragment
         android:id="@+id/fragmentHistori"
         android:name="com.mopro.rumusdasarmatermatika.ui.FragmentHistori"
         android:label="FragmentHistori" />
-=======
->>>>>>> origin/Assessment2
+
 </navigation>

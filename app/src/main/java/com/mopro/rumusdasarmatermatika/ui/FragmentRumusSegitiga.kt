@@ -10,13 +10,16 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.mopro.rumusdasarmatermatika.R
 import com.mopro.rumusdasarmatermatika.databinding.ActivityRumusSegitigaBinding
+import com.mopro.rumusdasarmatermatika.db.HasilDb
 import com.mopro.rumusdasarmatermatika.model.LuasSegitiga
 
 class FragmentRumusSegitiga : Fragment() {
     private lateinit var binding: ActivityRumusSegitigaBinding
     //mvvm
     private val viewModel: MainVIewModel by lazy {
-        ViewModelProvider(this)[MainVIewModel::class.java]
+        val db = HasilDb.getInstance(requireContext())
+        val factory = MainViewModelFactory(db.dao)
+        ViewModelProvider(this, factory)[MainVIewModel::class.java]
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -36,14 +39,14 @@ class FragmentRumusSegitiga : Fragment() {
             Toast.makeText(context, R.string.alas_invalid, Toast.LENGTH_LONG).show()
             return
         }
-        val alasHit = alas.toFloat();
+        val alasHit = alas.toLong();
 
         val tinggi = binding.tinggiInput.text.toString()
         if (TextUtils.isEmpty(tinggi)) {
             Toast.makeText(context, R.string.tinggi_invalid, Toast.LENGTH_LONG).show()
             return
         }
-        val tinggiHit = tinggi.toFloat();
+        val tinggiHit = tinggi.toLong();
         //mvvm
         viewModel.segitiga(alasHit, tinggiHit)
 
