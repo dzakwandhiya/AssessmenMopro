@@ -1,23 +1,22 @@
 package com.mopro.rumusdasarmatermatika.ui
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.mopro.rumusdasarmatermatika.R
 import com.mopro.rumusdasarmatermatika.databinding.MainFragmentBinding
 
+
 class MainFragment : Fragment() {
     private lateinit var binding: MainFragmentBinding
-    private val viewModel: MainVIewModel by lazy {
-        ViewModelProvider(requireActivity())[MainVIewModel::class.java]
-    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
         binding = MainFragmentBinding.inflate(layoutInflater, container, false)
+        setHasOptionsMenu(true)
         return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -43,6 +42,19 @@ class MainFragment : Fragment() {
                 R.id.action_mainFragment_to_fragmentRumusLingkaran
             )
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.option_menu, menu)
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.menu_about) {
+            findNavController().navigate(
+                R.id.action_mainFragment_to_aboutFragment)
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 

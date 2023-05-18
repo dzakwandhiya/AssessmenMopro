@@ -27,4 +27,8 @@
     <string name="alas_invalid">Alas harus diisi!</string>
     <string name="tinggi_invalid">Tinggi harus diisi!</string>
     <string name="jari_invalid">Jari-jari harus diisi!</string>
+    <string name="about">Tentan Aplikasi</string>
+    <string name="copyright">Matematika Dasar merupakan aplikasi edukasi untuk menghitung luas bangun datar.\n\nAplikasi ini dibuat untuk kelas
+            Untuk memenuhi penilaian Assessment 2. Temukan kodenya di https://github.com/dzakwandhiya/AssessmenMopro\n\nCopyright © 2023 Dzakwan Dhiya Ulhaq.\nAll rights reserved.
+    </string>
 </resources>
