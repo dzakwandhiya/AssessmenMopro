@@ -15,6 +15,10 @@ import com.mopro.rumusdasarmatermatika.model.LuasSegitiga
 
 class FragmentRumusSegitiga : Fragment() {
     private lateinit var binding: ActivityRumusSegitigaBinding
+    fun isDecimal(number: Float):Boolean{
+        val decimalPart = number % 1
+        return decimalPart == 0f || decimalPart == 0.0f
+    }
     //mvvm
     private val viewModel: MainVIewModel by lazy {
         val db = HasilDb.getInstance(requireContext())
@@ -55,7 +59,9 @@ class FragmentRumusSegitiga : Fragment() {
     //mvvm
     private fun showResult(result: LuasSegitiga?) {
         if (result == null) return
-        binding.hasilSegitigaTextView.text = "Hasil : " + result.hasil +"cm²"
+        binding.hasilSegitigaTextView.text = "Hasil : " +
+                if(isDecimal(result.hasil)){ result.hasil.toLong()}
+                else{ result.hasil}  + " cm²"
     }
 }
 

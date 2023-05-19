@@ -55,9 +55,9 @@ class HistoriAdapter :
                 val hasil = item.hasil_rumus
                 val input = item.input
                 if(isDecimal(hasil)){
-                    dataTextView.text = "$input | Hasil: ${hasil.toLong()}"
+                    dataTextView.text = "$input | Hasil: ${hasil.toLong()} cm²"
                 }else{
-                    dataTextView.text = "$input | Hasil: $hasil"
+                    dataTextView.text = "$input | Hasil: $hasil cm²"
                 }
 
 

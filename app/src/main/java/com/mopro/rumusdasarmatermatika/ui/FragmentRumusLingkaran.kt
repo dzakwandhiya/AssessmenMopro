@@ -16,6 +16,10 @@ import com.mopro.rumusdasarmatermatika.model.LuasLingkaran
 
 class FragmentRumusLingkaran : Fragment() {
     private lateinit var binding: ActivityRumusLingkaranBinding
+    fun isDecimal(number: Float):Boolean{
+        val decimalPart = number % 1
+        return decimalPart == 0f || decimalPart == 0.0f
+    }
     //mvvm
     private val viewModel: MainVIewModel by lazy {
         val db = HasilDb.getInstance(requireContext())
@@ -48,7 +52,9 @@ class FragmentRumusLingkaran : Fragment() {
     //mvvm
     private fun showResult(result: LuasLingkaran?) {
         if (result == null) return
-        binding.hasilLingkaranTextView.text = "Hasil : " + result.hasil +"cm²"
+        binding.hasilLingkaranTextView.text = "Hasil : " +
+                if(isDecimal(result.hasil)){ result.hasil.toLong()}
+                else{ result.hasil}  + " cm²"
     }
 }
 

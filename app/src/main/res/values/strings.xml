@@ -27,13 +27,13 @@
     <string name="alas_invalid">Alas harus diisi!</string>
     <string name="tinggi_invalid">Tinggi harus diisi!</string>
     <string name="jari_invalid">Jari-jari harus diisi!</string>
-    <string name="about">Tentang Aplikasi</string>
-    <string name="bagikan">Bagikan Referensi</string>
+    <string name="menu_histori">Histori</string>
+    <string name="menu_about">Tentang Aplikasi</string>
+    <string name="menu_bagikan">Bagikan Referensi</string>
     <string name="copyright">Matematika Dasar merupakan aplikasi edukasi untuk menghitung luas bangun datar.\n\nAplikasi ini dibuat untuk kelas
             Untuk memenuhi penilaian Assessment 2. Temukan kodenya di https://github.com/dzakwandhiya/AssessmenMopro\n\nCopyright © 2023 Dzakwan Dhiya Ulhaq.\nAll rights reserved.
     </string>
     <string name="tidak_ada_data">Tidak ada data</string>
-    <string name="histori">Histori</string>
     <string name="nama_bangun">Bangun : </string>
     <string name="hasil_rumus">Operasi : </string>
     <string name="histori_hapus">hapus histori </string>

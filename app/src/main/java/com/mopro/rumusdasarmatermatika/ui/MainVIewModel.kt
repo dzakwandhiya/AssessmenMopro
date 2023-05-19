@@ -17,6 +17,11 @@ class MainVIewModel(private val db: HasilDao) : ViewModel() {
     private val luasSegitiga = MutableLiveData<LuasSegitiga?>()
     private val luasLingkaran = MutableLiveData<LuasLingkaran?>()
 
+    fun isDecimal(number: Float):Boolean{
+        val decimalPart = number % 1
+        return decimalPart == 0f || decimalPart == 0.0f
+    }
+
     fun persegi(sisi: Float){
         val bangunPersegi = BangunPersegi(sisi)
         val sisi = bangunPersegi.sisi
@@ -41,9 +46,14 @@ class MainVIewModel(private val db: HasilDao) : ViewModel() {
     }
     fun countPersegi(sisi: Float){
         val hasil = sisi*sisi
+        if(isDecimal(sisi)){
+            sisi
+        }else{
+            sisi.toLong()
+        }
         val dataHasil = HasilEntity(
             bangun = "Persegi",
-            input = "Sisi: $sisi",
+            input = "Sisi: $sisi cm²",
             hasil_rumus = hasil
         )
 
@@ -59,7 +69,7 @@ class MainVIewModel(private val db: HasilDao) : ViewModel() {
         luasPersegiPanjang.value = LuasPersegiPanjang(hasil)
         val dataHasil = HasilEntity(
             bangun = "Persegi Panjang",
-            input = "Panjang: $panjang, Lebar: $lebar",
+            input = "Panjang: $panjang cm², Lebar: $lebar cm²",
             hasil_rumus = hasil
         )
         luasPersegiPanjang.value = dataHasil.hitungPersegiPanjang()
@@ -74,7 +84,7 @@ class MainVIewModel(private val db: HasilDao) : ViewModel() {
         luasSegitiga.value = LuasSegitiga(hasil)
         val dataHasil = HasilEntity(
             bangun = "Segitiga",
-            input = "Alas: $alas, Lebar: $tinggi",
+            input = "Alas: $alas cm², Lebar: $tinggi cm²",
             hasil_rumus = hasil
         )
         luasPersegiPanjang.value = dataHasil.hitungPersegiPanjang()
@@ -89,7 +99,7 @@ class MainVIewModel(private val db: HasilDao) : ViewModel() {
         val hasil = PHI*jari*jari
         val dataHasil = HasilEntity(
             bangun = "Lingkaran",
-            input = "Jari-Jari: $jari",
+            input = "Jari-Jari: $jari cm²",
             hasil_rumus = hasil
         )
 
