@@ -39,14 +39,14 @@ class FragmentRumusSegitiga : Fragment() {
             Toast.makeText(context, R.string.alas_invalid, Toast.LENGTH_LONG).show()
             return
         }
-        val alasHit = alas.toLong();
+        val alasHit = alas.toFloat();
 
         val tinggi = binding.tinggiInput.text.toString()
         if (TextUtils.isEmpty(tinggi)) {
             Toast.makeText(context, R.string.tinggi_invalid, Toast.LENGTH_LONG).show()
             return
         }
-        val tinggiHit = tinggi.toLong();
+        val tinggiHit = tinggi.toFloat();
         //mvvm
         viewModel.segitiga(alasHit, tinggiHit)
 

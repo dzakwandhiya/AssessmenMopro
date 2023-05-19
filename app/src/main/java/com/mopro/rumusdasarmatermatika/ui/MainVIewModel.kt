@@ -17,29 +17,29 @@ class MainVIewModel(private val db: HasilDao) : ViewModel() {
     private val luasSegitiga = MutableLiveData<LuasSegitiga?>()
     private val luasLingkaran = MutableLiveData<LuasLingkaran?>()
 
-    fun persegi(sisi: Long){
+    fun persegi(sisi: Float){
         val bangunPersegi = BangunPersegi(sisi)
         val sisi = bangunPersegi.sisi
         countPersegi(sisi)
     }
-    fun persegiPanjang(panjang: Long, lebar: Long){
+    fun persegiPanjang(panjang: Float, lebar: Float){
         val bangunPersegiPanjang = BangunPersegiPanjang(panjang, lebar)
         val panjang = bangunPersegiPanjang.panjang
         val lebar = bangunPersegiPanjang.lebar
         countPersegiPanjang(panjang, lebar)
     }
-    fun segitiga(alas: Long, tinggi: Long){
+    fun segitiga(alas: Float, tinggi: Float){
         val bangunSegitiga = BangunSegitiga(alas, tinggi)
         val alas = bangunSegitiga.alas
         val tinggi = bangunSegitiga.tinggi
         countSegitiga(alas, tinggi)
     }
-    fun lingkaran(jari: Long){
+    fun lingkaran(jari: Float){
         val bangunLingkaran = BangunLingkaran(jari)
         val jari = bangunLingkaran.jari
         countLingkaran(jari)
     }
-    fun countPersegi(sisi: Long){
+    fun countPersegi(sisi: Float){
         val hasil = sisi*sisi
         val dataHasil = HasilEntity(
             bangun = "Persegi",
@@ -54,7 +54,7 @@ class MainVIewModel(private val db: HasilDao) : ViewModel() {
             }
         }
     }
-    fun countPersegiPanjang(panjang: Long, lebar: Long){
+    fun countPersegiPanjang(panjang: Float, lebar: Float){
         val hasil = panjang*lebar
         luasPersegiPanjang.value = LuasPersegiPanjang(hasil)
         val dataHasil = HasilEntity(
@@ -69,13 +69,13 @@ class MainVIewModel(private val db: HasilDao) : ViewModel() {
             }
         }
     }
-    fun countSegitiga(alas: Long, tinggi: Long){
+    fun countSegitiga(alas: Float, tinggi: Float){
         val hasil = alas*tinggi*0.5f
-        luasSegitiga.value = LuasSegitiga(hasil.toLong())
+        luasSegitiga.value = LuasSegitiga(hasil)
         val dataHasil = HasilEntity(
             bangun = "Segitiga",
             input = "Alas: $alas, Lebar: $tinggi",
-            hasil_rumus = hasil.toLong()
+            hasil_rumus = hasil
         )
         luasPersegiPanjang.value = dataHasil.hitungPersegiPanjang()
         viewModelScope.launch{
@@ -84,13 +84,13 @@ class MainVIewModel(private val db: HasilDao) : ViewModel() {
             }
         }
     }
-    fun countLingkaran(jari: Long){
-        val PHI = 3.14
+    fun countLingkaran(jari: Float){
+        val PHI = 3.14f
         val hasil = PHI*jari*jari
         val dataHasil = HasilEntity(
             bangun = "Lingkaran",
             input = "Jari-Jari: $jari",
-            hasil_rumus = hasil.toLong()
+            hasil_rumus = hasil
         )
 
         luasLingkaran.value = dataHasil.hitungLingkaran()

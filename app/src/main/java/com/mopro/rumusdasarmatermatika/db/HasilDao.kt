@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 
 @Dao
 interface HasilDao {
@@ -13,4 +14,5 @@ interface HasilDao {
     fun getLastHasil(): LiveData<List<HasilEntity>>
     @Query("DELETE FROM hasil")
     fun clearData()
+
 }

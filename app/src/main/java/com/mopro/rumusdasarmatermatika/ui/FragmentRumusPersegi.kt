@@ -41,7 +41,7 @@ class FragmentRumusPersegi : Fragment() {
             Toast.makeText(context, R.string.sisi_invalid, Toast.LENGTH_LONG).show()
             return
         }
-        val sisiNum = sisi.toLong()
+        val sisiNum = sisi.toFloat()
 
         //mvvm
         viewModel.persegi(sisiNum)

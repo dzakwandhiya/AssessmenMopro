@@ -2,6 +2,7 @@ package com.mopro.rumusdasarmatermatika.ui
 
 
 import android.graphics.drawable.GradientDrawable
+import android.icu.text.NumberFormat
 import android.icu.text.SimpleDateFormat
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -14,6 +15,7 @@ import com.mopro.rumusdasarmatermatika.R
 import com.mopro.rumusdasarmatermatika.databinding.ItemHistoriBinding
 import com.mopro.rumusdasarmatermatika.db.HasilEntity
 import com.mopro.rumusdasarmatermatika.model.hitungPersegi
+import java.lang.NumberFormatException
 import java.util.*
 
 class HistoriAdapter :
@@ -41,12 +43,27 @@ class HistoriAdapter :
         private val dateFormatter = SimpleDateFormat("dd MMMM yyyy",
             Locale("id", "ID")
         )
+        //jika angka(float) tersebut bisa jadi angka biasa(tidak ada 0 di belakang koma)
+        fun isDecimal(number: Float):Boolean{
+            val decimalPart = number % 1
+            return decimalPart == 0f || decimalPart == 0.0f
+        }
         fun bind(item: HasilEntity) = with(binding) {
 
                 //bangunTextView.setImageResource(R.drawable.square)
                 typeTextView.text = item.bangun
                 val hasil = item.hasil_rumus
-                dataTextView.text = "${item.input} | Hasil: $hasil"
+                val input = item.input
+                if(isDecimal(hasil)){
+                    dataTextView.text = "$input | Hasil: ${hasil.toLong()}"
+                }else{
+                    dataTextView.text = "$input | Hasil: $hasil"
+                }
+
+
+
+
+                //dataTextView.text = "$input | Hasil: $hasil"
                 tanggalTextView.text = dateFormatter.format(Date(item.tanggal))
                 if(item.bangun.equals("Persegi")){
                     bangunTextView.setImageResource(R.drawable.square)

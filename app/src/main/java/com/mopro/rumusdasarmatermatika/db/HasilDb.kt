@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [HasilEntity::class], version = 1, exportSchema = false)
+@Database(entities = [HasilEntity::class], version = 2, exportSchema = false)
 abstract class HasilDb : RoomDatabase(){
     abstract  val dao: HasilDao
     companion object{

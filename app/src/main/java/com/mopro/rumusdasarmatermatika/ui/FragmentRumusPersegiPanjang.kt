@@ -39,13 +39,13 @@ class FragmentRumusPersegiPanjang : Fragment() {
             Toast.makeText(context, R.string.panjang_invalid, Toast.LENGTH_LONG).show()
             return
         }
-        val panjangHit = panjang.toLong();
+        val panjangHit = panjang.toFloat();
         val lebar = binding.lebarInput.text.toString();
         if (TextUtils.isEmpty(lebar)) {
             Toast.makeText(context, R.string.lebar_invalid, Toast.LENGTH_LONG).show()
             return
         }
-        val lebarHit = lebar.toLong();
+        val lebarHit = lebar.toFloat();
         //mvvm
         viewModel.persegiPanjang(panjangHit, lebarHit)
     }

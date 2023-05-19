@@ -10,5 +10,5 @@ data class HasilEntity(
     var tanggal: Long = System.currentTimeMillis(),
     var bangun: String,
     var input: String,
-    var hasil_rumus: Long
+    var hasil_rumus: Float
 )

@@ -41,7 +41,7 @@ class FragmentRumusLingkaran : Fragment() {
             Toast.makeText(context, R.string.jari_invalid, Toast.LENGTH_LONG).show()
             return
         }
-        val jariHit = jari.toLong()
+        val jariHit = jari.toFloat()
         //MVVM
         viewModel.lingkaran(jariHit)
     }
