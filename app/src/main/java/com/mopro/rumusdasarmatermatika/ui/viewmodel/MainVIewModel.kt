@@ -1,4 +1,4 @@
-package com.mopro.rumusdasarmatermatika.ui
+package com.mopro.rumusdasarmatermatika.ui.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

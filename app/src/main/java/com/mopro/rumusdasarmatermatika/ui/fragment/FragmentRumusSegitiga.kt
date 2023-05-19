@@ -1,4 +1,4 @@
-package com.mopro.rumusdasarmatermatika.ui
+package com.mopro.rumusdasarmatermatika.ui.fragment
 
 import android.os.Bundle
 import android.text.TextUtils
@@ -12,6 +12,8 @@ import com.mopro.rumusdasarmatermatika.R
 import com.mopro.rumusdasarmatermatika.databinding.ActivityRumusSegitigaBinding
 import com.mopro.rumusdasarmatermatika.db.HasilDb
 import com.mopro.rumusdasarmatermatika.model.LuasSegitiga
+import com.mopro.rumusdasarmatermatika.ui.viewmodel.MainVIewModel
+import com.mopro.rumusdasarmatermatika.ui.viewmodel.MainViewModelFactory
 
 class FragmentRumusSegitiga : Fragment() {
     private lateinit var binding: ActivityRumusSegitigaBinding

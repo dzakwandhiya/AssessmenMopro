@@ -1,21 +1,14 @@
 package com.mopro.rumusdasarmatermatika.ui
 
-
-import android.graphics.drawable.GradientDrawable
-import android.icu.text.NumberFormat
 import android.icu.text.SimpleDateFormat
 import android.view.LayoutInflater
 import android.view.ViewGroup
-
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.mopro.rumusdasarmatermatika.R
 import com.mopro.rumusdasarmatermatika.databinding.ItemHistoriBinding
 import com.mopro.rumusdasarmatermatika.db.HasilEntity
-import com.mopro.rumusdasarmatermatika.model.hitungPersegi
-import java.lang.NumberFormatException
 import java.util.*
 
 class HistoriAdapter :
@@ -59,11 +52,6 @@ class HistoriAdapter :
                 }else{
                     dataTextView.text = "$input | Hasil: $hasil cm²"
                 }
-
-
-
-
-                //dataTextView.text = "$input | Hasil: $hasil"
                 tanggalTextView.text = dateFormatter.format(Date(item.tanggal))
                 if(item.bangun.equals("Persegi")){
                     bangunTextView.setImageResource(R.drawable.square)
@@ -77,67 +65,6 @@ class HistoriAdapter :
                 else{
                     bangunTextView.setImageResource(R.drawable.circle)
                 }
-
-                //bangunTextView.setImageResource(R.drawable.square)
-
-//                val bangun = item.bangun
-//
-//                    val input = item.input
-//                typeTextView.text = bangun
-//                val hasil = item.hitungPersegi()
-//                dataTextView.text = "Sisi = $input"
-//                tanggalTextView.text = dateFormatter.format(Date(item.tanggal))
-//                bangunTextView.setImageResource(R.drawable.square)
-
-
-//            val bangun = item.bangun
-//            val input = item.input
-//            typeTextView.text = bangun
-//            val hasil = item.hitungPersegi()
-//            dataTextView.text = "Sisi = $input"
-//            tanggalTextView.text = dateFormatter.format(Date(item.tanggal))
-//            if(item.bangun.equals("Persegi")){
-//                bangunTextView.setImageResource(R.drawable.square)
-//            }
-
-//            val colorRes = when(item.bangun) {
-//                bangun.equals("persegi") -> {
-//                    R.color.white
-//                }
-//
-//                else -> {
-//                    R.color.teal_200
-//                }
-//            }
-//            val circleBg = bangunTextView.background as GradientDrawable
-//            circleBg.setColor(ContextCompat.getColor(root.context, colorRes))
-
-
-//            if(item.bangun.equals("persegi")){
-//                val circleBg = bangunTextView.background as GradientDrawable
-//                circleBg.setColor(ContextCompat.getColor(root.context, --))
-//            }
-
-        //            val circleBg = hasilTextView.background as GradientDrawable
-//            circleBg.setColor(ContextCompat.getColor(root.context, R.color.persegi))
-//            tanggalTextView.text = dateFormatter.format(Date(item.tanggal))
-//            bangunTextView.text = root.context.getString(R.string.nama_bangun,
-//                hasilBmi.bmi, hasilBmi.kategori.toString())
-//            val gender = root.context.getString(
-//                if (item.isMale) R.string.pria else R.string.wanita)
-//            dataTextView.text = root.context.getString(R.string.data_x,
-//                item.berat, item.tinggi, gender)
-
-//            typeTextView.text = hasilPersegi.hasil.toString().substring(0, 1)
-//            val circleBg = hasilTextView.background as GradientDrawable
-//            circleBg.setColor(ContextCompat.getColor(root.context, R.color.persegi))
-//            tanggalTextView.text = dateFormatter.format(Date(item.tanggal))
-//            bangunTextView.text = root.context.getString(R.string.nama_bangun,
-//                hasilBmi.bmi, hasilBmi.kategori.toString())
-//            val gender = root.context.getString(
-//                if (item.isMale) R.string.pria else R.string.wanita)
-//            dataTextView.text = root.context.getString(R.string.data_x,
-//                item.berat, item.tinggi, gender)
         }
     }
 

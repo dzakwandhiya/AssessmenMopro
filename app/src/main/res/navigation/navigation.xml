@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.mopro.rumusdasarmatermatika.ui.MainFragment"
+        android:name="com.mopro.rumusdasarmatermatika.ui.fragment.MainFragment"
         android:label="Rumus Matematika"
         tools:layout="@layout/main_fragment" >
         <action
@@ -33,17 +33,17 @@
     </fragment>
     <fragment
         android:id="@+id/fragmentRumusLingkaran"
-        android:name="com.mopro.rumusdasarmatermatika.ui.FragmentRumusLingkaran"
+        android:name="com.mopro.rumusdasarmatermatika.ui.fragment.FragmentRumusLingkaran"
         android:label="Rumus Lingkaran"
         tools:layout="@layout/activity_rumus_lingkaran" />
     <fragment
         android:id="@+id/fragmentRumusPersegi"
-        android:name="com.mopro.rumusdasarmatermatika.ui.FragmentRumusPersegi"
+        android:name="com.mopro.rumusdasarmatermatika.ui.fragment.FragmentRumusPersegi"
         android:label="Rumus Persegi"
         tools:layout="@layout/activity_rumus_persegi" />
     <fragment
         android:id="@+id/fragmentRumusPersegiPanjang"
-        android:name="com.mopro.rumusdasarmatermatika.ui.FragmentRumusPersegiPanjang"
+        android:name="com.mopro.rumusdasarmatermatika.ui.fragment.FragmentRumusPersegiPanjang"
         android:label="Rumus Persegi Panjang"
         tools:layout="@layout/activity_rumus_persegi_panjang" />
     <fragment
@@ -52,13 +52,13 @@
         android:label="Tentang" />
     <fragment
         android:id="@+id/fragmentRumusSegitiga"
-        android:name="com.mopro.rumusdasarmatermatika.ui.FragmentRumusSegitiga"
+        android:name="com.mopro.rumusdasarmatermatika.ui.fragment.FragmentRumusSegitiga"
         android:label="Rumus Segitiga"
         tools:layout="@layout/activity_rumus_segitiga" />
 
     <fragment
         android:id="@+id/fragmentHistori"
-        android:name="com.mopro.rumusdasarmatermatika.ui.FragmentHistori"
+        android:name="com.mopro.rumusdasarmatermatika.ui.fragment.FragmentHistori"
         android:label="Histori Anda" />
 
 </navigation>

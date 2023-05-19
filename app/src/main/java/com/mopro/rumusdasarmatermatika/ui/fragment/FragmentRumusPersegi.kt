@@ -1,8 +1,7 @@
-package com.mopro.rumusdasarmatermatika.ui
+package com.mopro.rumusdasarmatermatika.ui.fragment
 
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +12,8 @@ import com.mopro.rumusdasarmatermatika.R
 import com.mopro.rumusdasarmatermatika.databinding.ActivityRumusPersegiBinding
 import com.mopro.rumusdasarmatermatika.db.HasilDb
 import com.mopro.rumusdasarmatermatika.model.LuasPersegi
+import com.mopro.rumusdasarmatermatika.ui.viewmodel.MainVIewModel
+import com.mopro.rumusdasarmatermatika.ui.viewmodel.MainViewModelFactory
 
 class FragmentRumusPersegi : Fragment() {
     private lateinit var binding: ActivityRumusPersegiBinding

@@ -1,7 +1,6 @@
-package com.mopro.rumusdasarmatermatika.ui
+package com.mopro.rumusdasarmatermatika.ui.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -11,6 +10,9 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.mopro.rumusdasarmatermatika.R
 import com.mopro.rumusdasarmatermatika.databinding.HistoriHasilBinding
 import com.mopro.rumusdasarmatermatika.db.HasilDb
+import com.mopro.rumusdasarmatermatika.ui.HistoriAdapter
+import com.mopro.rumusdasarmatermatika.ui.viewmodel.HistoriViewModel
+import com.mopro.rumusdasarmatermatika.ui.viewmodel.HistoriViewModelFactory
 
 class FragmentHistori : Fragment() {
     private lateinit var binding: HistoriHasilBinding
