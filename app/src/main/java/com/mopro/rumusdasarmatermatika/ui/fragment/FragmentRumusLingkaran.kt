@@ -2,6 +2,7 @@ package com.mopro.rumusdasarmatermatika.ui.fragment
 
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -55,8 +56,8 @@ class FragmentRumusLingkaran : Fragment() {
     private fun showResult(result: LuasLingkaran?) {
         if (result == null) return
         binding.hasilLingkaranTextView.text = "Hasil : " +
-                if(isDecimal(result.hasil)){ result.hasil.toLong()}
-                else{ result.hasil}  + " cm²"
+                if(isDecimal(result.hasilLuasLingkaran)){ result.hasilLuasLingkaran.toLong()}
+                else{ result.hasilLuasLingkaran}  + " cm²"
     }
 }
 

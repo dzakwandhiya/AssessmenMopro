@@ -62,8 +62,8 @@ class FragmentRumusSegitiga : Fragment() {
     private fun showResult(result: LuasSegitiga?) {
         if (result == null) return
         binding.hasilSegitigaTextView.text = "Hasil : " +
-                if(isDecimal(result.hasil)){ result.hasil.toLong()}
-                else{ result.hasil}  + " cm²"
+                if(isDecimal(result.hasilLuasSegitiga)){ result.hasilLuasSegitiga.toLong()}
+                else{ result.hasilLuasSegitiga}  + " cm²"
     }
 }
 

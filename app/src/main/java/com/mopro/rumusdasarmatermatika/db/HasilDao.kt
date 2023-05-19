@@ -13,5 +13,7 @@ interface HasilDao {
     fun getLastHasil(): LiveData<List<HasilEntity>>
     @Query("DELETE FROM hasil")
     fun clearData()
+    @Query("DELETE FROM hasil WHERE id = :userId")
+    fun deleteUserById(userId: Long)
 
 }

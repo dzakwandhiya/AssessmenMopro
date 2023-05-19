@@ -55,8 +55,8 @@ class FragmentRumusPersegi : Fragment() {
     private fun showResult(result: LuasPersegi?) {
         if (result == null) return
         binding.hasilPersegiTextView.text = "Hasil : " +
-                if(isDecimal(result.hasil)){ result.hasil.toLong()}
-                else{ result.hasil}  + " cm²"
+                if(isDecimal(result.hasilLuasPersegi)){ result.hasilLuasPersegi.toLong()}
+                else{ result.hasilLuasPersegi}  + " cm²"
 
     }
 }
