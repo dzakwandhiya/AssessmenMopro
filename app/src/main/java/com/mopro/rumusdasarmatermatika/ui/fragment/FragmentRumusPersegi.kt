@@ -12,7 +12,7 @@ import com.mopro.rumusdasarmatermatika.R
 import com.mopro.rumusdasarmatermatika.databinding.ActivityRumusPersegiBinding
 import com.mopro.rumusdasarmatermatika.db.HasilDb
 import com.mopro.rumusdasarmatermatika.model.LuasPersegi
-import com.mopro.rumusdasarmatermatika.ui.viewmodel.MainVIewModel
+import com.mopro.rumusdasarmatermatika.ui.viewmodel.MainViewModel
 import com.mopro.rumusdasarmatermatika.ui.viewmodel.MainViewModelFactory
 
 class FragmentRumusPersegi : Fragment() {
@@ -22,10 +22,10 @@ class FragmentRumusPersegi : Fragment() {
         return decimalPart == 0f || decimalPart == 0.0f
     }
     //mvvm
-    private val viewModel: MainVIewModel by lazy {
+    private val viewModel: MainViewModel by lazy {
         val db = HasilDb.getInstance(requireContext())
         val factory = MainViewModelFactory(db.dao)
-        ViewModelProvider(this, factory)[MainVIewModel::class.java]
+        ViewModelProvider(this, factory)[MainViewModel::class.java]
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
