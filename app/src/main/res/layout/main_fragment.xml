@@ -50,10 +50,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonPersegi3" />
+            app:layout_constraintTop_toBottomOf="@+id/buttoDaftarRumus" />
 
         <Button
-            android:id="@+id/buttonPersegi3"
+            android:id="@+id/buttoDaftarRumus"
             android:layout_width="260dp"
             android:layout_height="60dp"
             android:layout_marginTop="32dp"

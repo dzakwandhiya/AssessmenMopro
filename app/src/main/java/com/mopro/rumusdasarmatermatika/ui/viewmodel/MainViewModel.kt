@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.mopro.rumusdasarmatermatika.db.HasilDao
 import com.mopro.rumusdasarmatermatika.db.HasilEntity
 import com.mopro.rumusdasarmatermatika.model.*
+import com.mopro.rumusdasarmatermatika.network.ApiStatus
 import com.mopro.rumusdasarmatermatika.network.IntroApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -19,16 +20,20 @@ class MainViewModel(private val db: HasilDao) : ViewModel() {
     private val luasSegitiga = MutableLiveData<LuasSegitiga?>()
     private val luasLingkaran = MutableLiveData<LuasLingkaran?>()
     private val data = MutableLiveData<List<Intro>>()
+    private val status = MutableLiveData<ApiStatus>()
 
     init {
         retrieveData()
     }
     private fun retrieveData() {
+        status.postValue(ApiStatus.LOADING)
         viewModelScope.launch (Dispatchers.IO) {
             try {
                 data.postValue(IntroApi.service.getApiData())
+                status.postValue(ApiStatus.SUCCESS)
             } catch (e: Exception) {
                 Log.d("MainViewModel", "Failure: ${e.message}")
+                status.postValue(ApiStatus.FAILED)
             }
         }
     }
@@ -131,6 +136,8 @@ class MainViewModel(private val db: HasilDao) : ViewModel() {
     fun getLuasPersegiPanjang(): LiveData<LuasPersegiPanjang?> = luasPersegiPanjang
     fun getLuasSegitiga(): LiveData<LuasSegitiga?> = luasSegitiga
     fun getLuasLingkaran(): LiveData<LuasLingkaran?> = luasLingkaran
+    fun getStatus(): LiveData<ApiStatus> = status
+
 
 
 }

@@ -29,6 +29,9 @@
         <action
             android:id="@+id/action_mainFragment_to_fragmentHistori"
             app:destination="@id/fragmentHistori" />
+        <action
+            android:id="@+id/action_mainFragment_to_fragmentIntro"
+            app:destination="@id/fragmentIntro" />
 
     </fragment>
     <fragment
@@ -60,5 +63,9 @@
         android:id="@+id/fragmentHistori"
         android:name="com.mopro.rumusdasarmatermatika.ui.fragment.FragmentHistori"
         android:label="Histori Anda" />
+    <fragment
+        android:id="@+id/fragmentIntro"
+        android:name="com.mopro.rumusdasarmatermatika.ui.fragment.FragmentIntro"
+        android:label="FragmentIntro" />
 
 </navigation>

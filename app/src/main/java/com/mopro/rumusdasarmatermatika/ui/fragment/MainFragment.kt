@@ -20,6 +20,11 @@ class MainFragment : Fragment() {
         return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.buttoDaftarRumus.setOnClickListener{
+            it.findNavController().navigate(
+                R.id.action_mainFragment_to_fragmentIntro
+            )
+        }
         binding.buttonPersegi.setOnClickListener {
             it.findNavController().navigate(
                 R.id.action_mainFragment_to_fragmentRumusPersegi
