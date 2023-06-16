@@ -1,4 +1,6 @@
 [
   {"namaBangun":"Persegi","jenisRumus":"Keliling: 2 x (P + L)","imageId":"persegi"},
-  {"namaBangun":"Persegi","jenisRumus":"Luas: P x L","imageId":"persegi"}
+  {"namaBangun":"Persegi","jenisRumus":"Luas: P x L","imageId":"persegi"},
+  {"namaBangun":"Persegi Panjang","jenisRumus":"Keliling: 2 x (P + L)","imageId":"persegipanjang"},
+  {"namaBangun":"Persegi Panjang","jenisRumus":"Luas: P x L","imageId":"persegipanjang"}
 ]
