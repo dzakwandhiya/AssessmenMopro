@@ -12,7 +12,7 @@ import com.mopro.rumusdasarmatermatika.R
 import com.mopro.rumusdasarmatermatika.databinding.ActivityRumusPersegiBinding
 import com.mopro.rumusdasarmatermatika.db.HasilDb
 import com.mopro.rumusdasarmatermatika.model.LuasPersegi
-import com.mopro.rumusdasarmatermatika.ui.viewmodel.MainVIewModel
+import com.mopro.rumusdasarmatermatika.ui.viewmodel.MainViewModel
 import com.mopro.rumusdasarmatermatika.ui.viewmodel.MainViewModelFactory
 
 class FragmentRumusPersegi : Fragment() {
@@ -22,10 +22,10 @@ class FragmentRumusPersegi : Fragment() {
         return decimalPart == 0f || decimalPart == 0.0f
     }
     //mvvm
-    private val viewModel: MainVIewModel by lazy {
+    private val viewModel: MainViewModel by lazy {
         val db = HasilDb.getInstance(requireContext())
         val factory = MainViewModelFactory(db.dao)
-        ViewModelProvider(this, factory)[MainVIewModel::class.java]
+        ViewModelProvider(this, factory)[MainViewModel::class.java]
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -55,8 +55,8 @@ class FragmentRumusPersegi : Fragment() {
     private fun showResult(result: LuasPersegi?) {
         if (result == null) return
         binding.hasilPersegiTextView.text = "Hasil : " +
-                if(isDecimal(result.hasil)){ result.hasil.toLong()}
-                else{ result.hasil}  + " cm²"
+                if(isDecimal(result.hasilLuasPersegi)){ result.hasilLuasPersegi.toLong()}
+                else{ result.hasilLuasPersegi}  + " cm²"
 
     }
 }

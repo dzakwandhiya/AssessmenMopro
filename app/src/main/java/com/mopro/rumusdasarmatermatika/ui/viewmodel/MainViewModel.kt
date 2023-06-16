@@ -11,7 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class MainVIewModel(private val db: HasilDao) : ViewModel() {
+class MainViewModel(private val db: HasilDao) : ViewModel() {
     private val luasPersegi = MutableLiveData<LuasPersegi?>()
     private val luasPersegiPanjang = MutableLiveData<LuasPersegiPanjang?>()
     private val luasSegitiga = MutableLiveData<LuasSegitiga?>()
