@@ -1,5 +1,6 @@
 package com.mopro.rumusdasarmatermatika.ui.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -7,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.mopro.rumusdasarmatermatika.db.HasilDao
 import com.mopro.rumusdasarmatermatika.db.HasilEntity
 import com.mopro.rumusdasarmatermatika.model.*
+import com.mopro.rumusdasarmatermatika.network.IntroApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -16,6 +18,20 @@ class MainViewModel(private val db: HasilDao) : ViewModel() {
     private val luasPersegiPanjang = MutableLiveData<LuasPersegiPanjang?>()
     private val luasSegitiga = MutableLiveData<LuasSegitiga?>()
     private val luasLingkaran = MutableLiveData<LuasLingkaran?>()
+    private val data = MutableLiveData<List<Intro>>()
+
+    init {
+        retrieveData()
+    }
+    private fun retrieveData() {
+        viewModelScope.launch (Dispatchers.IO) {
+            try {
+                data.postValue(IntroApi.service.getApiData())
+            } catch (e: Exception) {
+                Log.d("MainViewModel", "Failure: ${e.message}")
+            }
+        }
+    }
 
     fun isDecimal(number: Float):Boolean{
         val decimalPart = number % 1
@@ -115,5 +131,6 @@ class MainViewModel(private val db: HasilDao) : ViewModel() {
     fun getLuasPersegiPanjang(): LiveData<LuasPersegiPanjang?> = luasPersegiPanjang
     fun getLuasSegitiga(): LiveData<LuasSegitiga?> = luasSegitiga
     fun getLuasLingkaran(): LiveData<LuasLingkaran?> = luasLingkaran
+
 
 }
