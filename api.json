@@ -1,8 +1,10 @@
 [
-  {"namaBangun":"Persegi","jenisRumus":"Keliling: 2 x (P + L)","imageId":"persegi"},
-  {"namaBangun":"Persegi","jenisRumus":"Luas: P x L","imageId":"persegi"},
-  {"namaBangun":"Persegi Panjang","jenisRumus":"Keliling: 2 x (P + L)","imageId":"persegipanjang"},
-  {"namaBangun":"Persegi Panjang","jenisRumus":"Luas: P x L","imageId":"persegipanjang"},
-  {"namaBangun":"Segitiga","jenisRumus":"Keliling: 2 x (P + L)","imageId":"segitiga"},
-  {"namaBangun":"Segitiga","jenisRumus":"Luas: P x L","imageId":"segitiga"}
+  {"namaBangun":"Persegi","jenisRumus":"Keliling: 4 x Sisi","imageId":"persegi"},
+  {"namaBangun":"Persegi","jenisRumus":"Luas: Sisi x Sisi","imageId":"persegi"},
+  {"namaBangun":"Persegi Panjang","jenisRumus":"Keliling: 2 x (Panjang + Lebar)","imageId":"persegipanjang"},
+  {"namaBangun":"Persegi Panjang","jenisRumus":"Luas: Panjang x Lebar","imageId":"persegipanjang"},
+  {"namaBangun":"Segitiga","jenisRumus":"Keliling: Sisi + Sisi + Sisi","imageId":"segitiga"},
+  {"namaBangun":"Segitiga","jenisRumus":"Luas: ½ x Alas x Tinggi","imageId":"segitiga"},
+  {"namaBangun":"Lingkaran","jenisRumus":"Keliling: π x Diameter","imageId":"lingkaran"},
+  {"namaBangun":"Lingkaran","jenisRumus":"Luas: π x Jari-jari x Jari-jari","imageId":"lingkaran"}
 ]
