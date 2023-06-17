@@ -1,18 +1,24 @@
 package com.mopro.rumusdasarmatermatika.ui.viewmodel
 
+import android.app.Application
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.work.ExistingWorkPolicy
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
 import com.mopro.rumusdasarmatermatika.db.HasilDao
 import com.mopro.rumusdasarmatermatika.db.HasilEntity
 import com.mopro.rumusdasarmatermatika.model.*
 import com.mopro.rumusdasarmatermatika.network.ApiStatus
 import com.mopro.rumusdasarmatermatika.network.IntroApi
+import com.mopro.rumusdasarmatermatika.network.UpdateWorker
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.util.concurrent.TimeUnit
 
 class MainViewModel(private val db: HasilDao) : ViewModel() {
     private val luasPersegi = MutableLiveData<LuasPersegi?>()
@@ -21,6 +27,17 @@ class MainViewModel(private val db: HasilDao) : ViewModel() {
     private val luasLingkaran = MutableLiveData<LuasLingkaran?>()
     private val data = MutableLiveData<List<Intro>>()
     private val status = MutableLiveData<ApiStatus>()
+
+    fun scheduleUpdater(app: Application) {
+        val request = OneTimeWorkRequestBuilder<UpdateWorker>()
+            .setInitialDelay(1, TimeUnit.MINUTES)
+            .build()
+        WorkManager.getInstance(app).enqueueUniqueWork(
+            UpdateWorker.WORK_NAME,
+            ExistingWorkPolicy.REPLACE,
+            request
+        )
+    }
 
     init {
         retrieveData()
