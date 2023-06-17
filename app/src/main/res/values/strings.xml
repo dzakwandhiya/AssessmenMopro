@@ -41,6 +41,6 @@
     <string name="hapus">Hapus</string>
     <string name="batal">Batal</string>
     <string name="sharelink">Kunjungi github saya:\nhttps://github.com/dzakwandhiya</string>
-    <string name="intro">DAFTAR RUMUS</string>
+    <string name="intro">(BARU) RUMUS ONLINE</string>
     <string name="koneksi_error">Koneksi error</string>
 </resources>

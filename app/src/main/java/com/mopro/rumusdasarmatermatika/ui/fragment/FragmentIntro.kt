@@ -61,6 +61,7 @@ class FragmentIntro : Fragment() {
             ApiStatus.FAILED -> {
                 binding.progressBar.visibility = View.GONE
                 binding.networkError.visibility = View.VISIBLE
+                binding.connected.visibility = View.VISIBLE
             }
         }
     }

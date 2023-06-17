@@ -26,8 +26,8 @@ class IntroAdapter : ListAdapter<Intro, IntroAdapter.IntroViewHolder>(IntroDiffC
     inner class IntroViewHolder(private val binding: ItemRumusBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(intro: Intro) {
-            binding.namaBangunTextView.text = "Nama bangun: ${intro.namaBangun}"
-            binding.jenisRumus.text = "Jenis rumus: ${intro.jenisRumus}"
+            binding.namaBangunTextView.text = "Bangun: ${intro.namaBangun}"
+            binding.jenisRumus.text = "Rumus: ${intro.jenisRumus}"
             Glide.with(binding.bangun.context)
                 .load(IntroApi.getImage(intro.imageId))
                 .error(R.drawable.baseline_broken_image)
